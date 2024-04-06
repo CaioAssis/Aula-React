@@ -2,11 +2,13 @@ import styles from './InputFatec.module.css'
 
 interface PHolder{
     placeholder: string
+    defaultValue: string
+    type: "text" | "checkbox" | "number"
 }
 
-function InputFatec({placeholder}: PHolder) {
+function InputFatec({placeholder, defaultValue, type}: PHolder) {
     return (
-        <input type="text" placeholder={placeholder} className={styles.inputFatec}/>
+        <input type={type} placeholder={placeholder} className={styles.inputFatec} defaultValue={defaultValue}/>
     )
 }
 
