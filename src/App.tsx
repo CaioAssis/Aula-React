@@ -1,17 +1,12 @@
 import './App.css'
-import ButtonFatec from './components/button-fatec'
-import InputFatec from './components/input-fatec'
+import FormAt1 from './components/formAt1'
 
 
 //const App = () => {}
 function App(){
   return (
     <>
-      <p> Olá mundo!</p>
-      <ButtonFatec type = 'button' label = "Botão 1"/>
-      <ButtonFatec type = 'button' label = "Botão 2"/>
-      <p> Paragrafo 2</p>
-      <InputFatec />
+      <FormAt1/>
     </>
   )
 }
