@@ -1,8 +1,10 @@
+interface PHolder{
+    placeholder: string
+}
 
-
-function InputFatec() {
+function InputFatec({placeholder}: PHolder) {
     return (
-        <input type="text"></input>
+        <input type="text" placeholder={placeholder}></input>
     )
 }
 
