@@ -8,7 +8,10 @@ interface PHolder{
 
 function InputFatec({placeholder, defaultValue, type}: PHolder) {
     return (
-        <input type={type} placeholder={placeholder} className={styles.inputFatec} defaultValue={defaultValue}/>
+        <input type={type} 
+        placeholder={placeholder} 
+        className={styles.inputFatec} 
+        defaultValue={defaultValue}/>
     )
 }
 

@@ -1,3 +1,6 @@
+//React Router - npm i react-router-dom
+//Arquivos são .tsx
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
