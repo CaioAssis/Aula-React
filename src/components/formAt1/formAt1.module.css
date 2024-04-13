@@ -1,9 +1,15 @@
 .campo{
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 .campoBotao{
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 .head{
     font-size: 30px;
+    display: flex;
+    justify-content: center;
 }
