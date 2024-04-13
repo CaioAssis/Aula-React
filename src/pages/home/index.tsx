@@ -1,13 +1,21 @@
-import { Link, useNavigate } from "react-router-dom"
+import Navegacao from "../../components/navegacao"
 //useNavigate -> exemplo professor
+/*
+const navigate = useNavigate
 
-function Home(){
-    const navigate = useNavigate()
-    return(
-        <>
+<Navegacao/>
             <h1 onClick={() => {
                 navigate('/sobre') }}>Home</h1>
-            <Link to='/sobre'>Ir para Sobre</Link>
+*/
+
+function Home(){
+    return(
+        <>
+            <Navegacao/>
+            
+            <h1>Home</h1>
+            <p>Aulas React:</p>
+            <p>Sistema de registro de tarefas de usuários.</p>
         </>
     )
 }
