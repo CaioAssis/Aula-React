@@ -1,5 +1,6 @@
-import './ButtonFatec.css' //className= 'botao-fatec'
-import styles from './ButtonFatec.module.css' //className={styles.botaoFatec}
+import { Button } from '@chakra-ui/react'
+//import './ButtonFatec.css' //className= 'botao-fatec'
+//import styles from './ButtonFatec.module.css' //className={styles.botaoFatec}
 
 interface Props{
     type: 'button' | 'submit' | 'reset'
@@ -8,9 +9,9 @@ interface Props{
 
 function ButtonFatec({type, label} : Props){
     return(
-        <button className={styles.botaoFatec} type = {type}>
+        <Button type={type} colorScheme='red' size='lg' variant='outline'>
             {label}
-        </button>
+        </Button>
     )
 }
 
