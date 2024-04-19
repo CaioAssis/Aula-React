@@ -6,7 +6,6 @@
     flex: 1; /* Distribui os blocos igualmente */
     color: black;
     background-color: gray;
-    padding: 20px;
     margin: 10px; /* Espaço entre os blocos */
     text-decoration: none;
 }

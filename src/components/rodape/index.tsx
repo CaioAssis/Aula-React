@@ -16,10 +16,10 @@ export default function Rodape() {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
         <Stack direction={'row'} spacing={6}>
-          <Box as="a" href={'#'}>
+          <Box as="a" href={'/'}>
             Home
           </Box>
-          <Box as="a" href={'#'}>
+          <Box as="a" href={'/sobre'}>
             About
           </Box>
           <Box as="a" href={'#'}>

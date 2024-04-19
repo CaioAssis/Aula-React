@@ -1,6 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react"
-import Navegacao from "../../components/navegacao"
-import Rodape from "../../components/rodape"
+import Layout from "../../components/layout"
 //useNavigate -> exemplo professor
 /*
 const navigate = useNavigate
@@ -12,21 +10,13 @@ const navigate = useNavigate
 
 function Home(){
     return(
-        <Grid className='grid' templateColumns='1fr' templateRows='64px auto 64px'>
-            <GridItem colSpan={1} rowSpan={1}>
-                <Navegacao/>
-            </GridItem>
-            
-            <GridItem colSpan={1} rowSpan={1}>
+        <Layout>
+            <div>
                 <h1>Home</h1>
                 <p>Aulas React:</p>
                 <p>Sistema de registro de tarefas de usuários.</p>
-            </GridItem>
-
-            <GridItem colSpan={1} rowSpan={1}>
-                <Rodape />
-            </GridItem>
-        </Grid>
+            </div>
+        </Layout>
     )
 }
 
