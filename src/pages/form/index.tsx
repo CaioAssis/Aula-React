@@ -1,5 +1,6 @@
 import FormAt1 from "../../components/formAt1"
 import Navegacao from "../../components/navegacao"
+import Rodape from "../../components/rodape"
 import Topo from "../../components/topo" //para teste do navBar do Chakra
 
 function Formulario(){ // mesmo que export default no fim
@@ -9,6 +10,8 @@ function Formulario(){ // mesmo que export default no fim
             <Topo/>
             
             <FormAt1/>
+
+            <Rodape />
         </>
 
     )
