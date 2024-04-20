@@ -6,15 +6,22 @@ interface Props{
 }
 
 function TarefaList({label, status} : Props){
-    let stat
-    if(status) stat = 'Completo'
-    else stat = 'Pendente'
+    let stat, bg
+    if(status) {
+        stat = 'Completo'
+        bg = 'green'
+    }
+    else {
+        stat = 'Pendente'
+        bg = '#707070'
+    }
+
     return(
-        <Box bg='gray' w='50%' p={2} color='black' display='flex' borderRadius='lg' gap={5} margin='5px'>
+        <Box bg='lightgray' w='50%' p={2} color='black' display='flex' borderRadius='lg' gap={5} margin='5px'>
             {label}
             <Spacer />
-            <Button>{stat}</Button>
-            <Button>Excluir</Button>
+            <Button bg={bg} textColor='white'>{stat}</Button>
+            <Button bg='#9e001c' textColor='white'>Excluir</Button>
         </Box>
     )
 }
