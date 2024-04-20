@@ -1,19 +1,28 @@
 import Layout from "../../components/layout"
-import Navegacao from "../../components/navegacao"
+import TarefaList from "../../components/tarefaList"
+import TarefaHead from "../../components/tarefaHead"
+
+import { Text } from "@chakra-ui/react"
 
 function Tasks(){ // mesmo que export default no fim
     return(
         <Layout>  
-            <div>         
-                <h1>Tarefas</h1>
-                <li>Tarefa 1</li>
-                <li>Tarefa 2</li>
-                <li>Tarefa 3</li>
-                <li>Tarefa 4</li>
-                <li>Tarefa 5</li>
-                <li>Tarefa 6</li>
-                <li>Tarefa 7</li>
-                <li>Tarefa 8</li>
+            <div>
+                <Text margin='5px' fontSize='30'>
+                    Lista de Tarefas
+                </Text>
+                <hr />
+                <TarefaHead />
+                <hr />
+                <TarefaList label="Tarefa 1" status={true}/>
+                <TarefaList label="Tarefa 2" status={true}/>
+                <TarefaList label="Tarefa 3" status={true}/>
+                <TarefaList label="Tarefa 4" status={false}/>
+                <TarefaList label="Tarefa 5" status={false}/>
+                <TarefaList label="Tarefa 6" status={true}/>
+                <TarefaList label="Tarefa 7" status={false}/>
+                <TarefaList label="Tarefa 8" status={false}/>
+                <hr />
             </div> 
         </Layout>
 

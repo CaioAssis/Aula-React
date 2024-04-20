@@ -6,9 +6,9 @@ import Tasks from './pages/tasks'
 import Formulario from './pages/form'
 
 const routes = createBrowserRouter([
-  {path: '/', element: <Home />, errorElement: <NotFound/>}, // errorElement só precisa estar na raiz
+  {path: '/home', element: <Home />, errorElement: <NotFound/>}, // errorElement só precisa estar na raiz
   {path: '/sobre', element:<Sobre />},
-  {path: '/form', element:<Formulario />},
+  {path: '/formulario', element:<Formulario />},
   {path: '/tarefa', element:<Tasks />}
 ])
 
