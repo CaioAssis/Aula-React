@@ -1,5 +1,4 @@
 import Layout from "../../components/layout"
-import Navegacao from "../../components/navegacao"
 import TarefaList from "../../components/tarefaList"
 import TarefaHead from "../../components/tarefaHead"
 
