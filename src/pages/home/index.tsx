@@ -1,4 +1,4 @@
-import Navegacao from "../../components/navegacao"
+import Layout from "../../components/layout"
 //useNavigate -> exemplo professor
 /*
 const navigate = useNavigate
@@ -10,13 +10,13 @@ const navigate = useNavigate
 
 function Home(){
     return(
-        <>
-            <Navegacao/>
-            
-            <h1>Home</h1>
-            <p>Aulas React:</p>
-            <p>Sistema de registro de tarefas de usuários.</p>
-        </>
+        <Layout>
+            <div>
+                <h1>Home</h1>
+                <p>Aulas React:</p>
+                <p>Sistema de registro de tarefas de usuários.</p>
+            </div>
+        </Layout>
     )
 }
 
