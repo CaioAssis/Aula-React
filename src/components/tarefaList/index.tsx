@@ -1,5 +1,8 @@
 import { Box, Button, Center, Spacer } from '@chakra-ui/react'
+import { useState } from 'react'
 
+
+//Usar um arquivo separado como interface para caso utilizar em outro lugar
 interface Props{
     label: string
     status: boolean
