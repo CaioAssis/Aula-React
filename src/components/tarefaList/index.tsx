@@ -1,5 +1,4 @@
 import { Box, Button, Center, Spacer } from '@chakra-ui/react'
-import { useState } from 'react'
 
 
 //Usar um arquivo separado como interface para caso utilizar em outro lugar
@@ -7,9 +6,10 @@ interface Props{
     label: string
     status: boolean
     idTarefa: number
+    apagarTarefa: any
 }
 
-function TarefaList({label, status, idTarefa} : Props){
+function TarefaList({label, status, idTarefa, apagarTarefa} : Props){
     let stat, bg
     if(status) {
         stat = 'Completo'
@@ -27,7 +27,8 @@ function TarefaList({label, status, idTarefa} : Props){
             </Center>
             <Spacer />
             <Button bg={bg} textColor='white'>{stat}</Button>
-            <Button bg='#9e001c' textColor='white'>Excluir</Button>
+            <Button bg='#9e001c' textColor='white'
+            onClick={()=>apagarTarefa(idTarefa)}>Excluir</Button>
         </Box>
     )
 }
