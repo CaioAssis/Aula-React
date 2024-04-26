@@ -25,11 +25,11 @@ function Tasks(){ // mesmo que export default no fim
                     Lista de Tarefas
                 </Text>
                 <hr />
-                <TarefaHead />
+                <TarefaHead tarefas={tarefas} setTarefas={setTarefas}/>
                 <hr />
                 {
                     tarefas.map((tarefa) =>(
-                        <TarefaList label={tarefa.nome} status={true} idTarefa={1}/>
+                        <TarefaList label={tarefa.nome} status={tarefa.concluida} idTarefa={tarefa.id}/>
                     ))
                 }
                 <hr />
