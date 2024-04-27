@@ -1,11 +1,11 @@
 import { Box, Button, Checkbox, Input, Spacer, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Tarefa } from "../interfaces/tarefas";
 
 
 interface FormTarefaProps {
     tarefas: Tarefa[]
-    setTarefas: any
+    setTarefas(tarefas: Tarefa[]): void
 }
 
 function TarefaHead({tarefas, setTarefas}: FormTarefaProps){
@@ -16,7 +16,7 @@ function TarefaHead({tarefas, setTarefas}: FormTarefaProps){
             const novaTarefa = {
                 id: ultimoId +1,
                 nome: nomeTarefa,
-                concluida: false
+                concluida: statusTarefa
             }
 
             setTarefas([...tarefas, novaTarefa])
@@ -24,6 +24,13 @@ function TarefaHead({tarefas, setTarefas}: FormTarefaProps){
     }
 
     const [nomeTarefa, setNomeTarefa] = useState('')
+    const [statusTarefa, setStatusTarefa] = useState(false)
+
+    const inputTarefa = useRef<HTMLInputElement>(null)
+    useEffect(() => {
+        if(inputTarefa.current) inputTarefa.current.focus()
+    }, [])
+
     return(
         <>
             <Text margin='5px' fontSize='20'>
@@ -31,12 +38,15 @@ function TarefaHead({tarefas, setTarefas}: FormTarefaProps){
             </Text>
             <Box w='50%' display='flex' margin='5px'>
                 
-                <Input placeholder='Digite o título da task' w='50%' 
+                <Input ref={inputTarefa} placeholder='Digite o título da task' w='50%' 
                 onChange={(evento) => setNomeTarefa(evento.target.value)}/>
                 <Spacer />
                 <Spacer />
                 <Spacer />
-                <Checkbox defaultChecked={false}>Realizada?</Checkbox>
+                <Checkbox defaultChecked={false} onChange={(evento) => {
+                    if (evento.target.checked) setStatusTarefa(true)
+                    else setStatusTarefa(false)
+                }}>Realizada?</Checkbox>
                 <Spacer />
                 <Button onClick={AdicionarTarefa}>Inserir</Button>
             </Box>

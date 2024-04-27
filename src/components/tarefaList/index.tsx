@@ -6,7 +6,7 @@ interface Props{
     label: string
     status: boolean
     idTarefa: number
-    apagarTarefa: any
+    apagarTarefa(id: number): void
 }
 
 function TarefaList({label, status, idTarefa, apagarTarefa} : Props){
