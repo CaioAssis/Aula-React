@@ -3,8 +3,36 @@ import TarefaList from "../../components/tarefaList"
 import TarefaHead from "../../components/tarefaHead"
 
 import { Text } from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { Tarefa } from "../../components/interfaces/tarefas"
+
+
+
 
 function Tasks(){ // mesmo que export default no fim
+    const[tarefas, setTarefas] = useState<Tarefa[]>([])
+
+    function apagarTarefa(id: number){
+        const tarefasAtualizadas = tarefas.filter((tarefa) => tarefa.id !== id)
+        setTarefas(tarefasAtualizadas)
+    }
+
+    function carregarLista(){
+        return[
+            {id: 1, nome: "Tarefa 1", concluida: false},
+            {id: 2, nome: "Tarefa 2", concluida: true},
+            {id: 3, nome: "Tarefa 3", concluida: false}
+        ]
+    }
+
+    useEffect(()=>{
+        const tarefas = carregarLista()
+        setTarefas(tarefas)
+    },[]) // para atualizar toda API
+
+    //const tarefas = carregarLista()
+    //setTarefas(tarefas)
+
     return(
         <Layout>  
             <div>
@@ -12,16 +40,14 @@ function Tasks(){ // mesmo que export default no fim
                     Lista de Tarefas
                 </Text>
                 <hr />
-                <TarefaHead />
+                <TarefaHead tarefas={tarefas} setTarefas={setTarefas}/>
                 <hr />
-                <TarefaList label="Tarefa 1" status={true}/>
-                <TarefaList label="Tarefa 2" status={true}/>
-                <TarefaList label="Tarefa 3" status={true}/>
-                <TarefaList label="Tarefa 4" status={false}/>
-                <TarefaList label="Tarefa 5" status={false}/>
-                <TarefaList label="Tarefa 6" status={true}/>
-                <TarefaList label="Tarefa 7" status={false}/>
-                <TarefaList label="Tarefa 8" status={false}/>
+                {
+                    tarefas.map((tarefa) =>(
+                        <TarefaList key={tarefa.id} label={tarefa.nome} status={tarefa.concluida} idTarefa={tarefa.id}
+                        apagarTarefa={apagarTarefa} />
+                    ))
+                }
                 <hr />
             </div> 
         </Layout>
