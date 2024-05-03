@@ -15,8 +15,8 @@ function TarefaHead({tarefas, setTarefas}: FormTarefaProps){
             const ultimoId = tarefas[tarefas.length-1].id
             const novaTarefa = {
                 id: ultimoId +1,
-                nome: nomeTarefa,
-                concluida: statusTarefa
+                title: nomeTarefa,
+                completed: statusTarefa
             }
 
             setTarefas([...tarefas, novaTarefa])

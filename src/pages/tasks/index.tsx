@@ -45,7 +45,7 @@ function Tasks(){ // mesmo que export default no fim
                 <hr />
                 {
                     tarefas.map((tarefa) =>(
-                        <TarefaList key={tarefa.id} label={tarefa.nome} status={tarefa.concluida} idTarefa={tarefa.id}
+                        <TarefaList key={tarefa.id} label={tarefa.title} status={tarefa.completed} idTarefa={tarefa.id}
                         apagarTarefa={apagarTarefa} />
                     ))
                 }
