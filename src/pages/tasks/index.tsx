@@ -5,6 +5,7 @@ import TarefaHead from "../../components/tarefaHead"
 import { Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { Tarefa } from "../../components/interfaces/tarefas"
+import api from "../../helpers/axios"
 
 
 
@@ -17,17 +18,17 @@ function Tasks(){ // mesmo que export default no fim
         setTarefas(tarefasAtualizadas)
     }
 
-    function carregarLista(){
-        return[
-            {id: 1, nome: "Tarefa 1", concluida: false},
-            {id: 2, nome: "Tarefa 2", concluida: true},
-            {id: 3, nome: "Tarefa 3", concluida: false}
-        ]
+    async function carregarLista(){
+        const resposta = await api.get('/task')
+        if(resposta.status == 200){
+            setTarefas(resposta.data)
+        }
+        return
+        
     }
 
     useEffect(()=>{
-        const tarefas = carregarLista()
-        setTarefas(tarefas)
+        carregarLista()
     },[]) // para atualizar toda API
 
     //const tarefas = carregarLista()
