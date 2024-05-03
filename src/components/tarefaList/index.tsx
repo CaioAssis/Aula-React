@@ -1,18 +1,21 @@
 import { Box, Button, Center, Spacer } from '@chakra-ui/react'
+import { Tarefa } from '../interfaces/tarefas'
 
 
 //Usar um arquivo separado como interface para caso utilizar em outro lugar
 interface Props{
-    label: string
+    /*label: string
     status: boolean
-    idTarefa: number
+    idTarefa: number*/
+    tarefa: Tarefa
     apagarTarefa(id: number): void
+    alterarStatus (tarefa: Tarefa): void
 }
 
-function TarefaList({label, status, idTarefa, apagarTarefa} : Props){
+function TarefaList({tarefa, apagarTarefa, alterarStatus} : Props){
     let stat, bg
-    if(status) {
-        stat = 'Completo'
+    if(tarefa.completed) {
+        stat = 'Realizado'
         bg = 'green'
     }
     else {
@@ -23,12 +26,21 @@ function TarefaList({label, status, idTarefa, apagarTarefa} : Props){
     return(
         <Box bg='lightgray' w='50%' p={2} color='black' display='flex' borderRadius='lg' gap={5} margin='5px'>
             <Center>
-                {idTarefa} - {label}
+                {tarefa.id} - {tarefa.title}
             </Center>
+            
             <Spacer />
-            <Button bg={bg} textColor='white'>{stat}</Button>
+
+            <Button bg={bg} 
+            textColor='white'
+            onClick={() => alterarStatus(tarefa)}>
+                {stat}
+            </Button>
+
             <Button bg='#9e001c' textColor='white'
-            onClick={()=>apagarTarefa(idTarefa)}>Excluir</Button>
+            onClick={()=>apagarTarefa(tarefa.id)}>
+                Excluir
+            </Button>
         </Box>
     )
 }

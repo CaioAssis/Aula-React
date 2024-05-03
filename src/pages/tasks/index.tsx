@@ -14,8 +14,15 @@ function Tasks(){ // mesmo que export default no fim
     const[tarefas, setTarefas] = useState<Tarefa[]>([])
 
     function apagarTarefa(id: number){
-        const tarefasAtualizadas = tarefas.filter((tarefa) => tarefa.id !== id)
-        setTarefas(tarefasAtualizadas)
+        api.delete(`/task/${id}`)
+        .then(resposta => {
+            if(resposta.status == 204) carregarLista
+            else alert('Erro ao remover!')
+            carregarLista()
+        })
+        .catch( erro => {
+            console.log(erro)
+        })
     }
 
     async function carregarLista(){
@@ -25,6 +32,14 @@ function Tasks(){ // mesmo que export default no fim
         }
         return
         
+    }
+
+    function alterarStatus(tarefa: Tarefa){
+        tarefa.completed = !tarefa.completed
+        api.put(`/task/${tarefa.id}`, tarefa)
+        .then(()=>{
+            carregarLista()
+        })
     }
 
     useEffect(()=>{
@@ -41,12 +56,13 @@ function Tasks(){ // mesmo que export default no fim
                     Lista de Tarefas
                 </Text>
                 <hr />
-                <TarefaHead tarefas={tarefas} setTarefas={setTarefas}/>
+                <TarefaHead carregarLista={carregarLista}/>
                 <hr />
                 {
                     tarefas.map((tarefa) =>(
-                        <TarefaList key={tarefa.id} label={tarefa.title} status={tarefa.completed} idTarefa={tarefa.id}
-                        apagarTarefa={apagarTarefa} />
+                        <TarefaList key={tarefa.id} tarefa={tarefa} 
+                        apagarTarefa={apagarTarefa} 
+                        alterarStatus={alterarStatus}/>
                     ))
                 }
                 <hr />
