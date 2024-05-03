@@ -1,4 +1,5 @@
 import Layout from "../../components/layout"
+import { Text } from "@chakra-ui/react"
 //useNavigate -> exemplo professor
 /*
 const navigate = useNavigate
@@ -12,9 +13,15 @@ function Home(){
     return(
         <Layout>
             <div>
-                <h1>Home</h1>
-                <p>Aulas React:</p>
-                <p>Sistema de registro de tarefas de usuários.</p>
+                <Text margin='5px' fontSize='30'>
+                    Home
+                </Text>
+                <Text margin='5px' fontSize='25'>
+                    Aulas React:
+                </Text>
+                <Text margin='5px' fontSize='20'>
+                    Sistema de registro de tarefas de usuários.
+                </Text>
             </div>
         </Layout>
     )
