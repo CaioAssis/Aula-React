@@ -5,6 +5,7 @@
 //Chakra UI -> npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
 //Chakra template <- template de componentes feitos com Chakra
 //npm i react-icons
+//npm i axios   <- facilita consumir APIs
 
 
 import React from 'react'

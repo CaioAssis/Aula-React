@@ -1,25 +1,29 @@
 import { Box, Button, Checkbox, Input, Spacer, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { Tarefa } from "../interfaces/tarefas";
+import api from "../../helpers/axios";
 
 
 interface FormTarefaProps {
-    tarefas: Tarefa[]
-    setTarefas(tarefas: Tarefa[]): void
+    carregarLista(): void
+    //tarefas: Tarefa[]
+    //setTarefas(tarefas: Tarefa[]): void
+
 }
 
-function TarefaHead({tarefas, setTarefas}: FormTarefaProps){
+function TarefaHead({carregarLista}: FormTarefaProps){
 
     function AdicionarTarefa(){
-        if(tarefas.length > 0){
-            const ultimoId = tarefas[tarefas.length-1].id
-            const novaTarefa = {
-                id: ultimoId +1,
-                nome: nomeTarefa,
-                concluida: statusTarefa
+        if(nomeTarefa != ''){
+            const novaTarefa = { //const novaTarefa:interfaceTarefa = {
+                title: nomeTarefa,
+                completed: statusTarefa
             }
-
-            setTarefas([...tarefas, novaTarefa])
+            api.post('/task', novaTarefa)
+            .then(() => {
+                setNomeTarefa('')
+                carregarLista()
+            })
         }
     }
 
