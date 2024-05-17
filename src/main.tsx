@@ -7,6 +7,9 @@
 //npm i react-icons
 //npm i axios   <- facilita consumir APIs
 
+//Back end - cookieParser -> Etapa 13
+//muda login, refreshToken e middleware (procurar cookie e logout)
+
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
