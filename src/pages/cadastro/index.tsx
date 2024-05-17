@@ -13,7 +13,11 @@ function cadastro() {
     function handleRegister() {
         api.post('/auth/register', userData)
         .then((resposta) => {
-            console.log(resposta)
+            if(resposta.status == 201) {
+                console.log(resposta)
+                alert('Cadastro efetuado com sucesso!')
+            }
+            else alert('Cadastro não efetuado!')
         })
         .catch((erro) => {
             console.log(erro)
