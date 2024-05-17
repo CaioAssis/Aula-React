@@ -12,7 +12,7 @@ const routes = createBrowserRouter([
   {path: '/sobre', element:<Sobre />},
   {path: '/formulario', element:<Formulario />},
   {path: '/tarefa', element:<Tasks />},
-  {path: '/cadasro', element: <Cadastro/>}
+  {path: '/cadastro', element: <Cadastro/>}
 ])
 
 export default routes //prof usou router
