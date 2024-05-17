@@ -4,20 +4,20 @@ import { Button } from "@chakra-ui/button"
 import { useState } from "react"
 import api from "../../helpers/axios"
 
-function Cadastro() {
+function Login() {
     const [userData, setUserData] = useState({ ///////////////ATUALIZAR NO PI
-        name:"",
         email:"",
         password:""
     })
-    function handleRegister() {
-        api.post('/auth/register', userData)
+    function handleLogin() {
+        api.post('/auth/login', userData, {withCredentials: true})
         .then((resposta) => {
-            if(resposta.status == 201) {
+            if(resposta.status == 200) {
                 console.log(resposta)
-                alert('Cadastro efetuado com sucesso!')
+                alert('Login efetuado com sucesso!')
+                localStorage.setItem('login', 'true')
             }
-            else alert('Cadastro não efetuado!')
+            else alert('Erro ao Logar!')
         })
         .catch((erro) => {
             console.log(erro)
@@ -27,20 +27,18 @@ function Cadastro() {
     return (
         <>
             <Layout>
-                <h1>Cadastre-se</h1>
+                <h1>Login</h1>
                 <form >
-                    <Input type="text" placeholder="Nome"
-                    onChange={(e) => setUserData({...userData, name: e.target.value})}/>
                     <Input type="e-mail" placeholder="E-mail"
                     onChange={(e) => setUserData({...userData, email: e.target.value})}/>
                     <Input type="password" placeholder="Senha"
                     onChange={(e) => setUserData({...userData, password: e.target.value})}/>
 
-                    <Button onClick={handleRegister}>Cadastrar</Button>
+                    <Button onClick={handleLogin}>Acessar</Button>
                 </form>
             </Layout>
         </>
     )
 }
 
-export default Cadastro
+export default Login

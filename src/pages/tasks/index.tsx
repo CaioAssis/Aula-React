@@ -14,7 +14,7 @@ function Tasks(){ // mesmo que export default no fim
     const[tarefas, setTarefas] = useState<Tarefa[]>([])
 
     function apagarTarefa(id: number){
-        api.delete(`/task/${id}`)
+        api.delete(`/task/${id}`, {withCredentials: true})
         .then(resposta => {
             if(resposta.status == 204) carregarLista
             else alert('Erro ao remover!')
@@ -26,7 +26,7 @@ function Tasks(){ // mesmo que export default no fim
     }
 
     async function carregarLista(){
-        const resposta = await api.get('/task')
+        const resposta = await api.get('/task', {withCredentials: true})
         if(resposta.status == 200){
             setTarefas(resposta.data)
         }
@@ -36,7 +36,7 @@ function Tasks(){ // mesmo que export default no fim
 
     function alterarStatus(tarefa: Tarefa){
         tarefa.completed = !tarefa.completed
-        api.put(`/task/${tarefa.id}`, tarefa)
+        api.put(`/task/${tarefa.id}`, tarefa, {withCredentials: true})
         .then(()=>{
             carregarLista()
         })

@@ -9,6 +9,7 @@
 
 //Back end - cookieParser -> Etapa 13
 //muda login, refreshToken e middleware (procurar cookie e logout)
+// modos mais seguros: -> JWT / OAUTH
 
 
 import React from 'react'

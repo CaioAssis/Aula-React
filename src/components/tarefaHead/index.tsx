@@ -19,7 +19,7 @@ function TarefaHead({carregarLista}: FormTarefaProps){
                 title: nomeTarefa,
                 completed: statusTarefa
             }
-            api.post('/task', novaTarefa)
+            api.post('/task', novaTarefa, {withCredentials: true})
             .then(() => {
                 setNomeTarefa('')
                 carregarLista()
