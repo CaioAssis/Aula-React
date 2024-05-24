@@ -1,6 +1,5 @@
 import { Box, Button, Checkbox, Input, Spacer, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
-import { Tarefa } from "../interfaces/tarefas";
 import api from "../../helpers/axios";
 
 

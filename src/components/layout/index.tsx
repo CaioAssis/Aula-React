@@ -1,8 +1,6 @@
 import Rodape from "../../components/rodape"
 import { Grid, GridItem } from "@chakra-ui/react"
-import Navegacao from "../navegacao"
 import Topo from "../topo/index"
-import { NavLink } from "react-router-dom"
 
 interface Props{
     children: React.ReactNode
